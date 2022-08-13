@@ -6,9 +6,11 @@ const playwright = require('playwright-core');
 app.get("/", async (request, response) => {
   try {
     const browser = await playwright.chromium.launch({
-    args: chromium.args,
+    args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
+    defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath,
-    headless: chromium.headless,
+    headless: true,
+    ignoreHTTPSErrors: true,
   });
 //     var fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
     // response.send(fullUrl);
