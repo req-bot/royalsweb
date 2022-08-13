@@ -1,15 +1,24 @@
 const express = require('express'),
-    app = express(),
-    puppeteer = require('puppeteer');
-const chromium = require('chrome-aws-lambda');
+    app = express();
+let chrome = {};
+let puppeteer;
+
+if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+  // running on the Vercel platform.
+  chrome = require('chrome-aws-lambda');
+  puppeteer = require('puppeteer-core');
+} else {
+  // running locally.
+  puppeteer = require('puppeteer');
+}
 
 app.get("/", async (request, response) => {
   try {
-    const browser = await chromium.puppeteer.launch({
-      args: chromium.args,
-      defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath,
-      headless: chromium.headless,
+    const browser = await puppeteer.launch({
+      args: [...chrome.args, '--hide-scrollbars', '--disable-web-security'],
+      defaultViewport: chrome.defaultViewport,
+      executablePath: await chrome.executablePath,
+      headless: true,
       ignoreHTTPSErrors: true,
     });
 //     var fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
