@@ -3,7 +3,7 @@ const express = require('express'),
     puppeteer = require('puppeteer');
 const chromium = require('chrome-aws-lambda');
 
-app.get("/:id/:code", async (request, response) => {
+app.get("/", async (request, response) => {
   try {
     const browser = await chromium.puppeteer.launch({
       args: chromium.args,
@@ -19,9 +19,9 @@ app.get("/:id/:code", async (request, response) => {
     const page = await browser.newPage();
     await page.goto('https://lordsmobile.igg.com/gifts/');
     await page.focus('#iggid')
-    await page.keyboard.type(request.params.id)
+    await page.keyboard.type('1234')
     await page.focus('#cdkey_1')
-    await page.keyboard.type(request.params.code)
+    await page.keyboard.type('royal')
     const selector1 = '#btn_claim_1';
     await page.waitForSelector(selector1);
     await page.click(selector1);
