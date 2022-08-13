@@ -1,13 +1,18 @@
 const express = require('express'),
     app = express(),
     puppeteer = require('puppeteer');
+const chromium = require('chrome-aws-lambda');
 
 app.get("/:id/:code", async (request, response) => {
   try {
-    const browser = await puppeteer.launch({
-      args: ['--no-sandbox']
+    const browser = await chromium.puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
     });
-    var fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
+//     var fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
     // response.send(fullUrl);
     // response.send(request.params.id);
     // response.send(request.params.code);
