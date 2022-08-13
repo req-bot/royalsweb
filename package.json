@@ -1,21 +1,19 @@
 {
-  "name": "puppeteer-sample",
-  "version": "0.0.1",
-  "description": "Puppeteer on Glitch",
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
   "main": "node server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {
-    "express": "^4.18.1"
-  },
-  "engines": {
-    "node": "8.x"
-  },
-  "license": "MIT",
   "keywords": [
     "node",
     "glitch",
     "express"
-  ]
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
