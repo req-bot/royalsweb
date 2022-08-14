@@ -47,7 +47,7 @@ app.get("/:id/:code", async (request, response) => {
 //     request.setHeader('Content-Type', `image/${type}`);
 //     request.end(file);
 //     response.sendFile(__dirname+'puppeteer.png');
-     return res.status(200).json;  
+     return response.status(200).json;  
   } catch (error) {
     console.log(error);
   }
