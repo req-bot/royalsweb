@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
-    "@sparticuz/chrome-aws-lambda":"^16.1.0",
+    "@sparticuz/chrome-aws-lambda":"^14.1.1",
     "playwright-aws-lambda": "^0.5.2"
   }
 }
