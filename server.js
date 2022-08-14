@@ -12,7 +12,7 @@ app.get("/", async (request, response) => {
     headless: true,
     ignoreHTTPSErrors: true,
   });
-//     var fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
+    // var fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
     // response.send(fullUrl);
     // response.send(request.params.id);
     // response.send(request.params.code);
