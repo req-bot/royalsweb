@@ -11,6 +11,7 @@ app.get("/", async (request, response) => {
     executablePath: await chromium.executablePath,
     headless: true,
     ignoreHTTPSErrors: true,
+    ignoreDefaultArgs: ['--disable-extensions'],
   });
     // var fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
     // response.send(fullUrl);
