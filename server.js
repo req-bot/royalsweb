@@ -21,6 +21,7 @@ app.get("/:id/:code", async (request, response) => {
     await page.goto('https://lordsmobile.igg.com/gifts/');
     await page.focus('#iggid')
     await page.keyboard.type(request.params.id)
+    const image = await page.screenshot({fullPage : true});
     await page.focus('#cdkey_1')
     await page.keyboard.type(request.params.code)
     const selector1 = '#btn_claim_1';
@@ -29,8 +30,6 @@ app.get("/:id/:code", async (request, response) => {
     const selector2 = '#btn_msg_close';
     await page.waitForSelector(selector2);
     await page.click(selector2);
-    await page.waitForNavigation();
-    const image = await page.screenshot({fullPage : true});
 //     await page.screenshot({path:'puppeteer.png'});
 //     response.sendFile('puppeteer.png');
 //     await page.locator('#iggid').fill('1234');
