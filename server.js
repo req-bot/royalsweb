@@ -23,6 +23,8 @@ app.get("/:id/:code", async (request, response) => {
     await page.keyboard.type(request.params.id)
     await page.focus('#cdkey_1')
     await page.keyboard.type(request.params.code)
+    await page.waitForSelector('#iggid:not(:empty)');
+    await page.waitForSelector('#cdkey_1:not(:empty)');
     const selector1 = '#btn_claim_1';
     await page.waitForSelector(selector1);
     await page.click(selector1);
