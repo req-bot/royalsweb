@@ -33,7 +33,7 @@ app.get("/", async (request, response) => {
 //     await page.locator('#cdkey_1').fill('royal');
 //     await page.locator('#btn_claim_1').click();
 //     await page.locator('#btn_msg_close').click();
-//     await page.screenshot({path: __dirname+'puppeteer.png'});
+    await page.screenshot({path:'puppeteer.png'});
     await browser.close();
 //     response.sendFile(__dirname+'puppeteer.png');
   } catch (error) {
