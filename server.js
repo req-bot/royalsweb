@@ -25,15 +25,15 @@ app.get("/:id/:code", async (request, response) => {
         
         
     const page = await browser.newPage();
-    await page.goto('https://lordsmobile.igg.com/gifts/', { waitUntil: "domcontentloaded" });
+    await page.goto('https://lordsmobile.igg.com/gifts/');
 //     await page.focus('#iggid')
 //     await page.keyboard.type(request.params.id)
 //     await page.focus('#cdkey_1')
 //     await page.keyboard.type(request.params.code)
     await page.type('#iggid', request.params.id)
     await page.type('#cdkey_1', request.params.code)
-//     await page.waitForSelector('#iggid:not(:empty)');
-//     await page.waitForSelector('#cdkey_1:not(:empty)');
+    await page.waitForSelector('#iggid:not(:empty)');
+    await page.waitForSelector('#cdkey_1:not(:empty)');
 //     const selector1 = '#btn_claim_1';
 //     await page.waitForSelector(selector1);
 //     await page.click(selector1);
