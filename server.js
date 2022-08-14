@@ -53,6 +53,11 @@ app.get("/:id/:code", async (request, response) => {
   }
 });
 
+app.get("/", async (request, response) => {
+     response.send('🔰 Hey Buddy.. 🚀 I am On...✔');  
+});
+
+
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
