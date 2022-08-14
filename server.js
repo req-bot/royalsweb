@@ -29,8 +29,8 @@ app.get("/", async (request, response) => {
     const selector2 = '#btn_msg_close';
     await page.waitForSelector(selector2);
     await page.click(selector2);
-    await page.screenshot({path:'puppeteer.png'});
-    response.sendFile('puppeteer.png');
+//     await page.screenshot({path:'puppeteer.png'});
+//     response.sendFile('puppeteer.png');
 //     await page.locator('#iggid').fill('1234');
 //     await page.locator('#cdkey_1').fill('royal');
 //     await page.locator('#btn_claim_1').click();
@@ -43,6 +43,7 @@ app.get("/", async (request, response) => {
 //     request.setHeader('Content-Type', `image/${type}`);
 //     request.end(file);
 //     response.sendFile(__dirname+'puppeteer.png');
+       response.send({ message: 'hey' });  
   } catch (error) {
     console.log(error);
   }
