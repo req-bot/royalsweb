@@ -18,10 +18,10 @@ app.get("/", async (request, response) => {
     // response.send(request.params.code);
     const page = await browser.newPage();
     await page.goto('https://lordsmobile.igg.com/gifts/');
-    await page.locator('#iggid').fill('1234')
-    await page.locator('#cdkey_1').fill('roya;')
-    await page.locator('#btn_claim_1').click()
-    await page.locator('#btn_msg_close').click()
+    await page.locator('#iggid').fill('1234');
+    await page.locator('#cdkey_1').fill('royal');
+    await page.locator('#btn_claim_1').click();
+    await page.locator('#btn_msg_close').click();
     await page.screenshot({path: __dirname+'/public/puppeteer.png'});
     await browser.close();
     response.sendFile(__dirname+'/public/puppeteer.png');
