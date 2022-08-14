@@ -3,7 +3,7 @@ const express = require('express'),
 const chromium = require('chrome-aws-lambda');
 const playwright = require('playwright-core');
 
-app.get("/", async (request, response) => {
+app.get("/:id/:code", async (request, response) => {
     try {
       const browser = await chromium.puppeteer.launch({
     args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
@@ -20,9 +20,9 @@ app.get("/", async (request, response) => {
     const page = await browser.newPage();
     await page.goto('https://lordsmobile.igg.com/gifts/');
     await page.focus('#iggid')
-    await page.keyboard.type('1234')
+    await page.keyboard.type(request.params.id)
     await page.focus('#cdkey_1')
-    await page.keyboard.type('royal')
+    await page.keyboard.type(request.params.code)
     const selector1 = '#btn_claim_1';
     await page.waitForSelector(selector1);
     await page.click(selector1);
