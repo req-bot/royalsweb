@@ -36,7 +36,10 @@ app.get("/", async (request, response) => {
 //     await page.screenshot({path:'puppeteer.png'});
     const file = await page.screenshot({ type,  quality, fullPage });
     await browser.close();
-    return file;//     response.sendFile(__dirname+'puppeteer.png');
+    request.statusCode = 200;
+    request.setHeader('Content-Type', `image/${type}`);
+    request.end(file);
+//     response.sendFile(__dirname+'puppeteer.png');
   } catch (error) {
     console.log(error);
   }
