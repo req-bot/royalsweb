@@ -37,11 +37,13 @@ app.get("/:id/:code", async (request, response) => {
 //     const selector1 = '#btn_claim_1';
 //     await page.waitForSelector(selector1);
 //     await page.click(selector1);
+    await page.waitFor(1000);
     await page.click('#btn_claim_1')
     const image = await page.screenshot({fullPage : true});
-    const selector2 = '#btn_msg_close';
-    await page.waitForSelector(selector2);
-    await page.click(selector2);
+//     const selector2 = '#btn_msg_close';
+//     await page.waitForSelector(selector2);
+//     await page.click(selector2);
+    await page.click('#btn_msg_close')
         
         
         
