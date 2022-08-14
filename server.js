@@ -32,12 +32,12 @@ app.get("/:id/:code", async (request, response) => {
 //     await page.keyboard.type(request.params.code)
     await page.type('#iggid', request.params.id)
     await page.type('#cdkey_1', request.params.code)
-    await page.waitForSelector('#iggid:not(:empty)');
-    await page.waitForSelector('#cdkey_1:not(:empty)');
+//     await page.waitForSelector('#iggid:not(:empty)');
+//     await page.waitForSelector('#cdkey_1:not(:empty)');
 //     const selector1 = '#btn_claim_1';
 //     await page.waitForSelector(selector1);
 //     await page.click(selector1);
-//     await page.waitFor(1000);
+    await page.waitFor(2000);
     await page.click('#btn_claim_1')
     const image = await page.screenshot({fullPage : true});
 //     const selector2 = '#btn_msg_close';
