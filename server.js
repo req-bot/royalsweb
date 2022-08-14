@@ -1,14 +1,16 @@
 const express = require('express'),
     app = express();
-const chromium = require('@sparticuz/chrome-aws-lambda');
+const chromium = require('chrome-aws-lambda');
 const playwright = require('playwright-core');
 
 app.get("/", async (request, response) => {
     try {
-      const browser = await playwright.chromium.launch({
-        args: chromium.args,
-        executablePath: await chromium.executablePath,
-        headless: chromium.headless,
+      const browser = await chromium.puppeteer.launch({
+    args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
+    headless: true,
+    ignoreHTTPSErrors: true,
   });
     // var fullUrl = request.protocol + '://' + request.get('host') + request.originalUrl;
     // response.send(fullUrl);
