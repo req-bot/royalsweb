@@ -29,7 +29,7 @@ app.get("/", async (request, response) => {
     const selector2 = '#btn_msg_close';
     await page.waitForSelector(selector2);
     await page.click(selector2);
-    const file = await page.screenshot({'png'});
+    const image = await page.screenshot({fullPage : true});
 //     await page.screenshot({path:'puppeteer.png'});
 //     response.sendFile('puppeteer.png');
 //     await page.locator('#iggid').fill('1234');
@@ -39,10 +39,8 @@ app.get("/", async (request, response) => {
 //     await page.screenshot({path:'puppeteer.png'});
 //     const file = await page.screenshot({ type,  quality, fullPage });
     await browser.close();
-    response.statusCode = 200;
-    response.setHeader('Content-Type', `image/${png}`);
-    response.end(file);    
-        
+    response.set('Content-Type', 'image/png');
+    response.send(image);   
         
 //     response.sendFile(file);
 //     request.statusCode = 200;
