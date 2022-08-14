@@ -21,9 +21,9 @@ app.get("/:id/:code", async (request, response) => {
     await page.goto('https://lordsmobile.igg.com/gifts/');
     await page.focus('#iggid')
     await page.keyboard.type(request.params.id)
-    const image = await page.screenshot({fullPage : true});
     await page.focus('#cdkey_1')
     await page.keyboard.type(request.params.code)
+    const image = await page.screenshot({fullPage : true});
     const selector1 = '#btn_claim_1';
     await page.waitForSelector(selector1);
     await page.click(selector1);
