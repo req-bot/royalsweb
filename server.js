@@ -1,4 +1,6 @@
 const express = require('express')
+var XMLHttpRequest = require('xhr2');
+
 const app = express()
 const port = 3000
 
