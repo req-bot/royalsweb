@@ -1,20 +1,19 @@
 const express = require('express')
-var XMLHttpRequest = require('xhr2');
+const axios = require('axios');
 
 const app = express()
 const port = 3000
 
-function httpGet(theUrl) {
-    var xhr = new XMLHttpRequest();
-    xhr.addEventListener("load", function() {
-        initialArray = JSON.parse(xhr.response);
-    }, false);
-    xhr.open('GET', theUrl);
-    return xhr;
-}
-
 app.get('/', (req, res) => {
-  console.log(httpGet(process.env.MYURL))
+  axios
+  .get('https://example.com/todos')
+  .then(res => {
+    console.log(`statusCode: ${res.status}`);
+    console.log(res);
+  })
+  .catch(error => {
+    console.error(error);
+  });
   res.send('Hello World!')
 })
 
