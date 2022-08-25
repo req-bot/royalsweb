@@ -6,7 +6,7 @@ const port = 3000
 
 app.get('/', (req, res) => {
   axios
-  .get('https://example.com/todos')
+  .get(process.env.MYURL)
   .then(res => {
     console.log(`statusCode: ${res.status}`);
     console.log(res);
