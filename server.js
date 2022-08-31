@@ -6,7 +6,8 @@ const port = 3000
 
 app.get('/', (req, res) => {
   var myArray = [process.env.MYURL];
-  myArray.forEach(function(value){
+  var arrayLength = myArray.length;
+  for (var i = 0; i < arrayLength; i++) {
     console.log(value);
     axios
     .get(value)
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
     .catch(error => {
       console.error(error);
     });
+  }
   res.send('Hello World!')
 })
 
