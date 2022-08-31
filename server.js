@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
   var myArray = ['process.env.MYURL','fsdfds'];
   var arrayLength = myArray.length;
   for (var i = 0; i < arrayLength; i++) {
-    console.log(value);
+    console.log(myArray[i]);
     axios
     .get(value)
     .then(res => {
