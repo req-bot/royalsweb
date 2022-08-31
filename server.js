@@ -14,6 +14,24 @@ app.get('/', (req, res) => {
   .catch(error => {
     console.error(error);
   });
+  axios
+  .get(process.env.MYURL1)
+  .then(res => {
+    console.log(`statusCode: ${res.status}`);
+    console.log(res);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+  axios
+  .get(process.env.MYURL2)
+  .then(res => {
+    console.log(`statusCode: ${res.status}`);
+    console.log(res);
+  })
+  .catch(error => {
+    console.error(error);
+  });
   res.send('Hello World!')
 })
 
