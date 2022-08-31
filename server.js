@@ -5,12 +5,8 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  var myArray = [https://climbing-forest-virgo.glitch.me/];
-  var arrayLength = myArray.length;
-  for (var i = 0; i < arrayLength; i++) {
-    console.log(myArray[i]);
     axios
-    .get(value)
+    .get('https://climbing-forest-virgo.glitch.me/')
     .then(res => {
       console.log(`statusCode: ${res.status}`);
       console.log(res);
@@ -18,7 +14,6 @@ app.get('/', (req, res) => {
     .catch(error => {
       console.error(error);
     });
-  }
   res.send('Hello World!')
 })
 
