@@ -17,7 +17,6 @@ app.get('/', (req, res) => {
     .catch(error => {
       console.error(error);
     });
-  };
   res.send('Hello World!')
 })
 
