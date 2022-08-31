@@ -5,7 +5,7 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  var myArray = ['process.env.MYURL','fsdfds'];
+  var myArray = ['https://climbing-forest-virgo.glitch.me/'];
   var arrayLength = myArray.length;
   for (var i = 0; i < arrayLength; i++) {
     console.log(myArray[i]);
