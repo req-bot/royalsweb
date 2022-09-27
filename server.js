@@ -6,7 +6,7 @@ const port = 3000
 
 app.get('/', (req, res) => {
     axios
-    .get('https://climbing-forest-virgo.glitch.me/')
+    .get('https://chivalrous-zircon-mockingbird.glitch.me/')
     .then(res => {
       console.log(`statusCode: ${res.status}`);
       console.log(res);
