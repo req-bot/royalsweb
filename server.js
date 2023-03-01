@@ -3,7 +3,7 @@ var app = express();
 var PORT = 3000;
 
 app.get('/', function(req, res){
-	res.redirect('https://req-bot.github.io/Validator/');
+	res.redirect('https://req-bot.github.io/got-it/');
 });
 
 app.listen(PORT, function(err){
