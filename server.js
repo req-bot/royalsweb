@@ -1,22 +1,13 @@
-const express = require('express')
-const axios = require('axios');
+var express = require('express');
+var app = express();
+var PORT = 3000;
 
-const app = express()
-const port = 3000
+// Without middleware
+app.get('/', function(req, res){
+	res.redirect('https://req-bot.github.io/Validator/');
+});
 
-app.get('/', (req, res) => {
-    axios
-    .get('https://brassy-pacific-lunaria.glitch.me/')
-    .then(res => {
-      console.log(`statusCode: ${res.status}`);
-      console.log(res);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.listen(PORT, function(err){
+	if (err) console.log(err);
+	console.log("Server listening on PORT", PORT);
+});
