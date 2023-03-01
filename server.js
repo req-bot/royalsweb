@@ -4,7 +4,9 @@ var PORT = 3000;
 
 // Without middleware
 app.get('/', function(req, res){
-	res.redirect('https://req-bot.github.io/Validator/');
+	setTimeout(function() {
+		res.redirect('https://req-bot.github.io/Validator/');
+	}, 3000)
 });
 
 app.listen(PORT, function(err){
