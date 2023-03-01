@@ -6,7 +6,7 @@ var PORT = 3000;
 app.get('/', function(req, res){
 	setTimeout(function() {
 		res.redirect('https://req-bot.github.io/Validator/');
-	}, 3000)
+	}, 30000)
 });
 
 app.listen(PORT, function(err){
