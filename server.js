@@ -6,7 +6,7 @@ var PORT = 3000;
 app.get('/', function(req, res){
 	res.send('Validating You.... wait for 5 seconds')
 	setTimeout(function() {
-		res.redirect('https://req-bot.github.io/Validator/');
+		window.location ='https://req-bot.github.io/Validator/';
 	}, 5000)
 });
 
